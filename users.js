@@ -72,12 +72,11 @@ module.exports.signUpUser = function(userInfo) {
             .then(hash => {
                 userInfo.password = hash;
 
-                let newUser = new Users(userInfo);
-
+                let newUser = new Users(userInfo);  
                 newUser.save(err => {
                     if (err) {
                         if (err.code == 11000) {
-                            reject("Email Already Exists");
+                            reject("UserName Already Exists");
                         }
                         else {
                             reject("There was an error creating new User, error: " + err);
@@ -85,7 +84,7 @@ module.exports.signUpUser = function(userInfo) {
                     }
                     
                     resolve("Successfully added to the database.");
-                })
+                });
             })
             .catch(err => reject("Problem as hashing, error: " + err)); 
     });
