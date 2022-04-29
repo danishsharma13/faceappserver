@@ -2,7 +2,7 @@
 
 
 const mongoose = require("mongoose"); 
-mongoose.set('useFindAndModify', false);
+// mongoose.set('useFindAndModify', false);
 const bcrypt = require("bcryptjs");
 
 let mongooseConnectionString = process.env.MONGO_URL;
@@ -14,6 +14,7 @@ let userSchema = new Schema({
         type: String,
         unique: true, // throw an error if same email was passed in while signup
         required: true, 
+        dropDups: true
     },
     email: {
         type: String,
