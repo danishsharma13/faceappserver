@@ -5,7 +5,7 @@
 //
 // Clarifai API Key
 // const app = new Clarifai.App({
-//     apiKey: "7a80efe82e5e452ea4e67007787db163",
+//     apiKey: "",
 // });
 
 // Old way of making HandleApiCall
